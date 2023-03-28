@@ -1,0 +1,5 @@
+n = int(input())
+list_form = input().split(' ')
+number2 = int(input())
+list_form = int("".join(list_form))
+print(" ".join(str(list_form + number2)))
