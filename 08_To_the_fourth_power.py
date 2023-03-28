@@ -17,6 +17,6 @@ n = int(input())
 
 Logn = log(n, 4)
 if (Logn == int(Logn)):
-  print("True")
+    print("True")
 else:
-  print("False")
+    print("False")
