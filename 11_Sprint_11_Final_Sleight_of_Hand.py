@@ -7,7 +7,7 @@ def count_points(k, game_field):
         digits_count = int(game_field.count(str(i)))
         if digits_count == 0:
             continue
-        elif int(digits_count) <= (k*2):
+        elif digits_count <= (k*2):
             points += 1
     return points
 
