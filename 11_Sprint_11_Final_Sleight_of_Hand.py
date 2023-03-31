@@ -1,18 +1,19 @@
-# ID успешной посылки = 84893824
-# URL успешного отчета = https://contest.yandex.ru/contest/23390/run-report/84893824/
+# ID успешной посылки = 84913377
+# URL успешного отчета = https://contest.yandex.ru/contest/23390/run-report/84913377/
 
 def count_points(k, game_field):
     points = 0
-    appearance_of_digits = {_: 0 for _ in range(1, 10)}
+    digits = {}
     for i in game_field:
         if i.isdigit():
-            appearance_of_digits[int(i)] += 1
-
-    for value in appearance_of_digits.values():
-        if value == 0:
-            continue
-        elif value <= k*2:
-            points += 1
+            if int(i) in digits.keys():
+                digits[int(i)] += 1
+            else:
+              digits[int(i)] = 1
+    else:
+        for value in digits.values():
+            if 0 < value <= k*2:
+                points += 1
     return points
 
 
