@@ -9,7 +9,7 @@ def count_points(k, game_field):
             if int(i) in digits.keys():
                 digits[int(i)] += 1
             else:
-              digits[int(i)] = 1
+                digits[int(i)] = 1
     else:
         for value in digits.values():
             if 0 < value <= k*2:
