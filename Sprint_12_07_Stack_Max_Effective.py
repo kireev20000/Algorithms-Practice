@@ -1,10 +1,16 @@
 class StackMaxEffective:
+
     def __init__(self):
         self.items = []
         self.max = []
 
-    def isEmpty(self):
+    def if_empty(self):
         return self.items == []
+
+    def get_max(self):
+        if self.if_empty():
+            return 'None'
+        return self.max[len(self.items) - 1]
 
     def push(self, item):
         if len(self.items) == 0:
@@ -15,22 +21,19 @@ class StackMaxEffective:
             self.max.append(self.max[len(self.items) - 1])
         self.items.append(item)
 
-    def get_max(self):
-        if self.isEmpty():
-            return 'None'
-        return self.max[len(self.items) - 1]
 
 
 def pop(self):
-    if self.isEmpty():
+    if self.if_empty():
         return 'error'
     self.max.pop()
     return self.items.pop()
 
 
-s = StackMaxEffective()
 n = int(input())
 result = []
+s = StackMaxEffective()
+
 for i in range(n):
     command = input().split()
     if command[0] == 'push':
@@ -40,5 +43,6 @@ for i in range(n):
             result.append('error')
     if command[0] == 'get_max':
         result.append(s.get_max())
+
 for i in result:
     print(i)
