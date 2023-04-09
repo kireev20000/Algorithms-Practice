@@ -1,5 +1,5 @@
 # ID успешной посылки = 84913377
-# URL успешного отчета = https://contest.yandex.ru/contest/23390/run-report/84913377/
+# URL успешного отчета. = https://contest.yandex.ru/contest/23390/run-report/84913377/
 
 def count_points(k, game_field):
     points = 0
