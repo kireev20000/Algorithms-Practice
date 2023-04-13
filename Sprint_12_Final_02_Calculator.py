@@ -5,10 +5,10 @@ class Stack:
     def __init__(self):
         self.__items = []
 
-    def push(self, i):
+    def _push(self, i):
         self.__items.append(i)
 
-    def pop(self):
+    def _pop(self):
         if len(self.__items) > 0:
             return self.__items.pop()
         raise IndexError('ОШИБКА! Стек пуст!')
