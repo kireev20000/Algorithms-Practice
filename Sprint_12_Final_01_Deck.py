@@ -27,24 +27,22 @@ class Deck:
     def _size_limit(self):
         return self.__size == self.__max_n
 
-    def _index_position(self, index, value):
-        if value == 1:
-            return (index + value) % self.__max_n
-        else:
-            return (index - 1 + self.__max_n) % self.__max_n
+    def _index_position(self, idx, add=False):
+        idx = idx + 1 if add else idx - 1
+        return idx % self.__max_n
 
     def push_back(self, value):
         if self._size_limit():
             raise DeckIsOverflow(Deck_Overflow_MSG)
         self.__queue[self.__tail] = value
-        self.__tail = self._index_position(self.__tail, +1)
+        self.__tail = self._index_position(self.__tail, True)
         self.__size += 1
 
     def push_front(self, value):
         if self._size_limit():
             raise DeckIsOverflow(Deck_Overflow_MSG)
         self.__queue[self.__head - 1] = value
-        self.__head = self._index_position(self.__head, -1)
+        self.__head = self._index_position(self.__head)
         self.__size += 1
 
 
@@ -53,7 +51,7 @@ class Deck:
             raise DeckIsEmpty(Deck_is_Empty_MSG)
         x = self.__queue[self.__tail - 1]
         self.__queue[self.__tail - 1] = None
-        self.__tail = self._index_position(self.__tail, -1)
+        self.__tail = self._index_position(self.__tail)
         self.__size -= 1
         return x
 
@@ -62,10 +60,9 @@ class Deck:
             raise DeckIsEmpty(Deck_is_Empty_MSG)
         x = self.__queue[self.__head]
         self.__queue[self.__head] = None
-        self.__head = self._index_position(self.__head, +1)
+        self.__head = self._index_position(self.__head, True)
         self.__size -= 1
         return x
-
 
 def deck(total_commands, max_n):
 
