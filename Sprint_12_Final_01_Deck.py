@@ -2,7 +2,7 @@
 # URL успешного отчета = https://contest.yandex.ru/contest/23759/run-report/85703424/
 
 Deck_is_Empty_MSG = 'ОШИБКА! Дека пуста!!'
-Deck_Overflow_MSG = 'ОШИБКА! В деке больше нет места!!'
+Deck_Overflow_MSG = 'ОШИБКА! В деке больше нет места!!!'
 
 
 class DeckIsEmpty(Exception):
