@@ -6,6 +6,7 @@ def greedy_child(factor, size):
             happy_child += 1
     return print(happy_child)
 
+
 if __name__ == '__main__':
     child_num = int(input())
     factor_of_greed = sorted(list(map(int, input().split())), reverse=True)
