@@ -1,5 +1,5 @@
-# ID успешной посылки =
-# URL успешного отчета =
+# ID успешной посылки = 86287890
+# URL успешного отчета = https://contest.yandex.ru/contest/24735/run-report/86287890/
 
 def broken_search(arr, obj):
     left, right = 0, len(arr)-1
@@ -25,6 +25,7 @@ def broken_search(arr, obj):
 def test():
     arr = [19, 21, 100, 101, 1, 4, 5, 7, 12]
     assert broken_search(arr, 5) == 6
+
 
 if __name__ == '__main__':
     test()
