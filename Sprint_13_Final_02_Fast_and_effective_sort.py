@@ -1,35 +1,49 @@
 # ID успешной посылки =
 # URL успешного отчета =
 
-def fast_effective_sort(players):
-    if len(players) <= 1:
-        return players
-    mid = players[len(players) // 2]
-    r_nums = []
-    l_nums = []
-    m_nums = []
-    for i in players:
-        if i[1] > mid[1]:
-            r_nums.append(i)
-        elif i[1] < mid[1]:
-            l_nums.append(i)
-        else:
-            if i[0] == mid[0]:
-                m_nums.append(i)
-            elif i[2] != mid[2]:
-                r_nums.append(i) if i[2] < mid[2] else l_nums.append(i)
-            else:
-                r_nums.append(i) if i[0] < mid[0] else l_nums.append(i)
-    return fast_effective_sort(r_nums) + m_nums + fast_effective_sort(l_nums)
+def fast_effective_sort(arr, left, right):
+    if right <= left:
+        return
+    l_index, r_index = left, right
+    pivot = arr[(left + right) // 2]
+    while l_index <= r_index:
+        while pivot > arr[l_index]:
+            l_index += 1
+        while pivot < arr[r_index]:
+            r_index -= 1
+        if l_index <= r_index:
+            arr[l_index], arr[r_index] = arr[r_index], arr[l_index]
+            l_index += 1
+            r_index -= 1
+
+    fast_effective_sort(arr, left, r_index)
+    fast_effective_sort(arr, l_index, right)
+
+# def fast_effective_sort(arr, left, right):
+#     pivot = arr[(left + right) // 2]
+#     left_index = left
+#     right_index = right
+#     while left_index <= right_index:
+#         while arr[left_index] < pivot:
+#             left_index += 1
+#         while arr[right_index] > pivot:
+#             right_index -= 1
+#         if left_index <= right_index:
+#             arr[left_index], arr[right_index] = arr[right_index], arr[left_index]
+#             left_index += 1
+#             right_index -= 1
+#     if right_index >= left:
+#         fast_effective_sort(arr, left, right_index)
+#     if left_index < right:
+#         fast_effective_sort(arr, left_index, right)
 
 
 if __name__ == '__main__':
-    #number_of_people = int(input())
-    arr2 = ['alla 4 100', 'gena 6 1000', 'gosha 2 90', 'rita 2 90', 'timofey 4 80']
-    #array = [[(int(y) if y.isdigit() else y) for y in input().split()] for _ in range(number_of_people)]
-    array = [[(int(y) if y.isdigit() else y) for y in _.split()] for _ in arr2]
+    array = [(-4, 100, 'alla'), (-6, 1000, 'gena'), (-2, 90, 'gosha'), (-2, 90, 'rita'), (-4, 80, 'timofey')]
+    # n_of_people = int(input())
+    #array = [(-int(s_tasks), int(shtraf), name) for _ in range(n_of_people) for name, s_tasks, shtraf in [input().split()]]
     # quick_sort(array, 0, len(array)-1)
     # print_results(array)
-    result = fast_effective_sort(array)
-    players_sort = [i[0] for i in result]
-    print(*players_sort, sep='\n')
+
+    fast_effective_sort(array, 0, len(array)-1)
+    print(*(name for _, _, name in array), sep="\n")
