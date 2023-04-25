@@ -8,11 +8,8 @@ def bracket_generation(count, prefix, left=0, right=0):
             bracket_generation(count, prefix + ')', left, right+1)
 
 
-def main():
-    n = int(input())
+if __name__ == '__main__':
+    # n = int(input())
+    n = 2
     prefix = ''
     bracket_generation(n, prefix)
-
-
-if __name__ == '__main__':
-    main()
