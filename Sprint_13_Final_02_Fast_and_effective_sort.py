@@ -1,7 +1,8 @@
 # ID успешной посылки =
 # URL успешного отчета =
 
-def fast_effective_sort(arr, left, right):
+
+def fast_effective_sort(arr: list, left: int, right: int) -> None:
     if right <= left:
         return
     l_index, r_index = left, right
