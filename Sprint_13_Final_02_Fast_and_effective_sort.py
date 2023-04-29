@@ -1,5 +1,5 @@
 # ID успешной посылки =
-# URL успешного отчета =
+# URL успешного отчета = 20
 
 
 def fast_effective_sort(arr: list, left: int, right: int) -> None:
